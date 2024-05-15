@@ -8,8 +8,8 @@ export default function SignUpPage() {
       <input id="email" name="email" type="email" required />
       <label htmlFor="displayname">First name:</label>
       <input id="displayname" name="displayname" type="text" required />
-      <label htmlFor="username">Username:</label>
-      <input id="username" name="username" type="text" required />
+      {/* <label htmlFor="username">Username:</label>
+      <input id="username" name="username" type="text" required /> */}
       <label htmlFor="password">Password:</label>
       <input id="password" name="password" type="password" required />
       <button formAction={signup}>Sign up</button>

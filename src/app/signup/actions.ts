@@ -15,7 +15,6 @@ export async function signup(formData: FormData) {
     options: {
       data: {
         first_name: formData.get("displayname"),
-        user_name: formData.get("username"),
       },
     },
   };
