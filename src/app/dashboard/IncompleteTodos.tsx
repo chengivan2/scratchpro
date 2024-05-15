@@ -8,7 +8,7 @@ interface Todo {
   todoid: number;
   todoname: string;
   tododescription: string;
-  "completed?": boolean;
+  completed: boolean;
   timeadded: Date;
   todouserid: number;
 }
@@ -30,7 +30,7 @@ export default async function IncompleteTodos() {
     const { data: incompleteTodosData, error } = await supabase
       .from("current_todos")
       .select("*")
-      .eq('"completed?"', false);
+      .eq('completed', false);
 
     if (error) console.log("Error: ", error);
     else setTodos(incompleteTodosData);
