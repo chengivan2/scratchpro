@@ -43,6 +43,7 @@ export default async function IncompleteTodos() {
 
     if (error) console.log("Error: ", error);
     else setTodos(incompleteTodosData);
+    "use server"
     console.log(incompleteTodosData);
   }
 
