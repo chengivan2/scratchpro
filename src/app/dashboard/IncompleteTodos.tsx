@@ -19,15 +19,6 @@ export default async function IncompleteTodos() {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  // Get the current user
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  // Get the user's ID
-  const userid = user?.id;
-
   // Select the user's todos
 
   useEffect(() => {
@@ -38,12 +29,10 @@ export default async function IncompleteTodos() {
     const { data: incompleteTodosData, error } = await supabase
       .from("current_todos")
       .select("*")
-      .eq("todouserid", userid)
       .eq("completed?", false);
 
     if (error) console.log("Error: ", error);
     else setTodos(incompleteTodosData);
-    "use server"
     console.log(incompleteTodosData);
   }
 
