@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
+
 interface Todo {
   todoid: number;
   todoname: string;
@@ -29,11 +30,13 @@ export default async function IncompleteTodos() {
     const { data: incompleteTodosData, error } = await supabase
       .from("current_todos")
       .select("*")
-      .eq("current_todos.completed?", false);
+      .eq('completed', false);
 
     if (error) console.log("Error: ", error);
     else setTodos(incompleteTodosData);
     console.log(incompleteTodosData);
+
+    return;
   }
 
   return (
