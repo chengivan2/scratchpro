@@ -28,14 +28,19 @@ export default function IncompleteTodos() {
     //   data: { user },
     // } = await supabase.auth.getUser();
     // const userid = user?.id;
-    const { data: todos, error } = await supabase
+    const { data: incompleteTodos, error } = await supabase
       .from("current_todos")
       .select("*")
       .eq("completed", false);
     //   .eq("todouserid", user?.id)
 
-    if (error) console.log("Error: ", error);
-    else setTodos(todos || []);
+    if (error) {
+      console.log("Error: ", error);
+    } else {
+      setTodos(incompleteTodos || []);
+      console.log(incompleteTodos)
+      console.log(todos);
+    }
   }
 
   return (
