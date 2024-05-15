@@ -29,14 +29,12 @@ export default async function IncompleteTodos() {
   async function fetchTodos() {
     const { data: incompleteTodosData, error } = await supabase
       .from('current_todos')
-      .select('*')
+      .select()
       .eq('completed', false);
 
     if (error) console.log("Error: ", error);
     else setTodos(incompleteTodosData);
     console.log(incompleteTodosData);
-
-    return;
   }
 
   return (
