@@ -1,4 +1,4 @@
-'use server'
+"use server";
 
 import { createClient } from "@supabase/supabase-js";
 
@@ -10,19 +10,19 @@ export default async function IncompleteTodos() {
 
   // Select the user's todos
   async function fetchTodos() {
-    // Get the current user
+    // // Get the current user
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    // const {
+    //   data: { user },
+    // } = await supabase.auth.getUser();
 
-    // Get the user's ID
-    const userid = user?.id;
+    // // Get the user's ID
+    // const userid = user?.id;
     const { data: incompleteTodosData, error } = await supabase
       .from("current_todos")
       .select("*")
-      .eq("todouserid", userid)
       .eq("completed", false);
+    //   .eq("todouserid", userid)
 
     if (error) {
       console.log("Error: ", error);
@@ -31,7 +31,7 @@ export default async function IncompleteTodos() {
     }
   }
 
-  fetchTodos()
+  fetchTodos();
 
   return (
     <div>
