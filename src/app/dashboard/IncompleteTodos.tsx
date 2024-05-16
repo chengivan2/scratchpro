@@ -24,22 +24,24 @@ export default function IncompleteTodos() {
   }, []);
 
   async function fetchTodos() {
-    // const {
-    //   data: { user },
-    // } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     // const userid = user?.id;
-    const { data: incompleteTodos, error } = await supabase
-      .from("current_todos")
-      .select("*")
-      .eq("completed", false);
-    //   .eq("todouserid", user?.id)
 
-    if (error) {
-      console.log("Error: ", error);
-    } else {
-      setTodos(incompleteTodos || []);
-      console.log(incompleteTodos)
-      console.log(todos);
+    if (user) {
+      const { data: incompleteTodos, error } = await supabase
+        .from("current_todos")
+        .select("*")
+        .eq("completed", false);
+      //   .eq("todouserid", user?.id)
+      if (error) {
+        console.log("Error: ", error);
+      } else {
+        setTodos(incompleteTodos || []);
+        console.log(incompleteTodos);
+        console.log(todos);
+      }
     }
   }
 
