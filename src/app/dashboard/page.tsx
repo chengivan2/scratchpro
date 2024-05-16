@@ -1,6 +1,5 @@
 import { redirect } from "next/navigation";
 import { createClient } from "../../../utils/supabase/server";
-import IncompleteTodos from "./IncompleteTodos";
 
 export default async function PrivatePage() {
   const supabase = createClient();
@@ -15,9 +14,7 @@ export default async function PrivatePage() {
       <p>
         Hello {data.user.email}. I hope your name is{" "}
         {data.user.user_metadata["first_name"]}
-      </p>
-      <IncompleteTodos />
-      
+      </p>      
     </div>
   );
 }

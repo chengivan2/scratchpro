@@ -1,3 +1,5 @@
+"use client"
+
 import { Database } from '../../../lib/schema'
 import { Session, useSupabaseClient } from '@supabase/auth-helpers-react'
 import { useEffect, useState } from 'react'

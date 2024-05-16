@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { useSession } from '@supabase/auth-helpers-react'
 import TodoList from '../components/TodoList'
 
