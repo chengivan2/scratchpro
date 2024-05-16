@@ -28,8 +28,9 @@ export default function IncompleteTodos() {
       data: { user },
     } = await supabase.auth.getUser();
     // const userid = user?.id;
-    console.log("Fetching todos...")
+    
     if (user) {
+      console.log("Fetching todos...")
       const { data: incompleteTodos, error } = await supabase
         .from("current_todos")
         .select("*")
